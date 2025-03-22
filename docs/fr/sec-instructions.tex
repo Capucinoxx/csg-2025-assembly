@@ -1,0 +1,58 @@
+\subsection*{Jeu d'instructions}
+\begin{table}[h]
+\centering
+\label{tab:instructions}
+\begin{tabular}{llccccc}
+  \toprule
+  \emph{Instruction} & \emph{Description} & \emph{IF} & \emph{ID} 
+                     & \emph{EX} & \emph{MEM} & \emph{WB} \\
+  
+  \bottomrule
+  \multicolumn{7}{l}{\textbf{Pile}} \\
+  \toprule
+  \texttt{PUSH Rx} & $P[sp] \gets R_x;\quad sp \gets sp + 1$ 
+                   & \yes & \yes & & \yes & \\
+  \texttt{POP Rx}  & $R_x \gets P[sp];\quad sp \gets sp - 1$ 
+                   & \yes & & & \yes & \yes \\
+  \texttt{TOP Rx}  & $R_x \gets P[sp]$ 
+                   & \yes & & & \yes & \yes \\
+  \texttt{SWAP}    & $P[sp] \leftrightarrow P[sp-1]$ 
+                   & \yes & & & & \yes \\
+
+  \bottomrule
+  \multicolumn{7}{l}{\textbf{Arithmétique}} \\
+  \toprule
+  \texttt{ADD Rx, Ry, Rz} & $R_x \gets R_y + R_z$ 
+                          & \yes & \yes & \yes & & \yes \\
+  \texttt{MOV Rx, Ry}     & $R_x \gets R_y$
+                          & \yes & \yes & & & \yes \\
+  \texttt{INC Rx}         & $R_x \gets Rx + 1$
+                          & \yes & \yes & \yes & & \yes \\
+  \texttt{ZER Rx}         & $R_x \gets 0$ 
+                          & \yes & & & & \yes \\
+  \bottomrule
+  \multicolumn{7}{l}{\textbf{Mémoire}} \\
+  \toprule
+  \texttt{LDR Rx, Ry, Rz} 
+    & $R_x \gets MEM[R_y : R_y + min(R_z, 4)]$ 
+    & \yes & \yes & \yes & \yes & \yes \\
+  \texttt{STR Rx, Ry} 
+    & $MAP[R_x : R_x + 4] \gets MAP[R_x : R_x + 4]\ |\ R_y $ 
+    & \yes & \yes & \yes & \yes & \\
+
+  \bottomrule
+  \multicolumn{7}{l}{\textbf{Contrôle}} \\
+  \toprule
+  \texttt{JLE Rx, Ry, label} 
+    & $pc \leftarrow \text{label} \quad \text{si }\ \ x \leq y$
+    & \yes & \yes & \yes & & \yes \\
+  \texttt{CALL label} 
+    & $lr \gets pc;\quad pc \gets$ \texttt{label} 
+    & \yes & & & & \yes \\
+  \texttt{RET}  & $pc \gets lr$ 
+                & \yes & \yes & & & \yes \\
+  \texttt{NOP}  & \emph{Ne fait rien} 
+                & \yes & & & & \\
+  \bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,37 @@
+\subsection*{Architecture du processeur}
+\noindent
+\textbf{Cycle du pipeline .} \quad
+Chaque instruction suit un cycle de traitement en un maximum de 
+\underline{cinq étapes}, selon le schéma suivant :
+\begin{enumerate}
+  \item \texttt{IF (Instruction Fetch)} - Chargement de l'instruction
+    depuis la mémoire.
+  \item \texttt{ID (Instruction Decode)} - Décodage de l'instruction
+    pour identifier les opérandes et registres.
+  \item \texttt{EX (Execution)} - Exécution des calculs arithmétiques,
+    logiques ou autres opérations.
+  \item \texttt{MEM (Memory Access)} - Accès à la mémoire pour lire ou
+    écrire des données.
+  \item \texttt{WB (Write Back)} - Écriture des résultats dans les
+    registres.
+\end{enumerate}
+\medskip
+
+\noindent
+\textbf{Registres .} \quad
+Le processeur dispose de $5$ registres $R_0, R_1, R_2, R_3, R_4$ non
+signés de quatre (4) octets ainsi que certains registres spéciaux :
+\begin{itemize}
+  \item \texttt{pc (Program Counter)} - Registre pointant vers 
+    l'instruction en cours d'exécution.
+  \item \texttt{sp (Stack Pointer)} - Registre pointant vers le sommet
+    de la pile.
+  \item \texttt{lr (Link Register)} - Registre de sauvegarde de 
+    l'adresse de retour.
+\end{itemize}
+\medskip
+
+\noindent
+\textbf{Pile .} \quad
+Le processeur dispose d'une pile $P$ bornée à $32$ éléments de quatre
+(4) octets non signés chacun. 

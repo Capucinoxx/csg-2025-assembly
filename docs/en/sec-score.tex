@@ -1,0 +1,44 @@
+\subsection*{Ranking}
+\noindent
+Let the set of tests provided by default for the project be as 
+follows:
+\begin{itemize}
+  \item \texttt{manuals\_f1/} : folder containing the instruction 
+    manuals with the first format for the instructions.
+  \item \texttt{manuals\_f2/} : folder containing the instruction 
+    manuals with the second format for the instructions.
+\end{itemize}
+\faExclamationCircle\ \ Only one (1) file per instruction format
+will be used for the tests. Since there are two formats, you will need 
+to submit two files. If multiple (more than two) files are submitted, 
+one file will be randomly chosen for each format.
+\medskip
+
+\noindent
+\textbf{Scoring. } \quad
+For each of the manuals (from the \texttt{manuals\_f1} and 
+\texttt{manuals\_f2} folders), a test will be performed to verify that 
+the program gives the expected result (drawing in the \texttt{MAP} 
+grid).
+
+\noindent
+Point allocation for each manual:
+\begin{itemize} 
+  \item \underline{If it is the correct expected result:} \\ 
+    The team that implemented the solution using the least number of 
+    clock cycles will receive one (1) point for the \texttt{m1\_x} 
+    manuals, two (2) points for the \texttt{m2\_x} manuals, and so on. 
+    The team that implemented the slowest solution will receive 
+    three-quarters (0.75) of a point less than the maximum, i.e., 
+    0.25 for the \texttt{m1\_x} manuals, 1.25 for the \texttt{m2\_x} 
+    manuals, and so on. Other teams that succeeded will have their 
+    score distributed linearly between these two bounds. 
+  \item \underline{Otherwise:} \\ 
+    A score ranging from zero (0) to one-tenth (0.1) of a point will 
+    be awarded based on the progress of the construction. 
+  \item \underline{If the program is hardcoded:} \\ A score of 0.25 
+    will be awarded. 
+\end{itemize}
+
+\noindent
+The final score will be the sum of the points from each manual.

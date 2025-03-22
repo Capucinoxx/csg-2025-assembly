@@ -1,0 +1,35 @@
+\subsection*{Processor Architecture}
+\noindent
+\textbf{Pipeline Cycle.} \quad
+Each instruction follows a processing cycle of up to \underline{five 
+steps}, according to the following scheme:
+\begin{enumerate}
+  \item \texttt{IF (Instruction Fetch)} - Loading the instruction 
+    from memory.
+  \item \texttt{ID (Instruction Decode)} - Decoding the instruction 
+    to identify operands and registers.
+  \item \texttt{EX (Execution)} - Performing arithmetic, logical, or 
+    other operations.
+  \item \texttt{MEM (Memory Access)} - Accessing memory to read or 
+    write data.
+  \item \texttt{WB (Write Back)} - Writing results into registers.
+\end{enumerate}
+\medskip
+
+\noindent
+\textbf{Registers.} \quad
+The processor has $5$ unsigned four-byte ($4$-byte) registers: $R_0, 
+R_1, R_2, R_3, R_4$, as well as several special registers:
+\begin{itemize}
+  \item \texttt{pc (Program Counter)} - Register pointing to the 
+    currently executing instruction.
+  \item \texttt{sp (Stack Pointer)} - Register pointing to the top of 
+    the stack.
+  \item \texttt{lr (Link Register)} - Register for storing the return 
+    address.
+\end{itemize}
+
+\noindent
+\textbf{Stack.} \quad
+The processor has a $P$ stack bounded by $32$ elements of four (4) 
+unsigned bytes each. 

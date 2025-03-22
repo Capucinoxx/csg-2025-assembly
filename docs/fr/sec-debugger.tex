@@ -1,0 +1,91 @@
+\subsection*{Outil de déverminage}
+\noindent
+Un outil rudimentaire a été mis sur place pour aider à la conception
+de programmes en langage assembleur. Cet outil permet de visualiser
+l'état du programme à chaque étape de son exécution. Ce programme 
+nommé \emph{asm} s'utilise comme suit :
+\begin{verbatim}
+  ./asm [-p <path>] [-m <path>] [-b breakpoints]
+\end{verbatim}
+Où 
+\begin{itemize}
+  \item \texttt{-p <path>} : spécifie le chemin vers le programme 
+    assembleur à exécuter.
+  \item \texttt{-m <path>} : spécifie le chemin vers le manuel 
+    d'instructions.
+  \item \texttt{-b breakpoints} : spécifie les points d'arrêt séparés 
+    par des virgules. On doit écrire les numéros de lignes faisant
+    référence au fichier assembleur.
+\end{itemize}
+Exemple d'utilisation :
+\verb|./asm -p program.asm -m manual.txt -b 3,6,42|
+\medskip
+
+\noindent
+\textbf{Visuel du programme. } \quad
+Le programme de déverminage est composé de six zones distinctes ainsi
+que six commandes pour interagir avec le programme. Voici sous forme 
+de tableaux les différentes zones et commandes disponibles :
+
+\begin{center}
+\begin{tabular}{cl}
+  \toprule
+  \emph{Commande} & \emph{Utilité} \\
+  \midrule
+  \texttt{q} & Quitter le programme. \\
+  \texttt{i} & Changer la zone sélectionnée. \\
+  \texttt{w} & Défiler vers le haut la zone sélectionnée. \\
+  \texttt{x} & Défiler vers le bas la zone sélectionnée. \\
+  \texttt{s} & Exécuter une instruction. \\
+  \texttt{c} & Continuer l'exécution jusqu'au prochain point d'arrêt. \\
+  \bottomrule
+\end{tabular} 
+\medskip
+
+Liste des commandes pour interagir avec le dévermineur.
+\end{center}
+\medskip
+
+\begin{center}
+\begin{tabular}{ll}
+  \toprule
+  \emph{Zone} & \emph{Description} \\
+  \midrule
+  \texttt{Instructions} & Liste des instructions du programme. \\
+  \texttt{Processor} & Information sur la pile et les registres. \\
+  \texttt{Memory} & Contenu de la mémoire ROM (manuel d'instructions). \\
+  \texttt{Map} & Contenu de la mémoire RAM (grille de construction). \\
+  \texttt{Pipeline} & État du pipeline d'exécution. \\
+  \bottomrule
+\end{tabular}
+\medskip
+
+Liste des zones affichées par le dévermineur.
+\end{center}
+\medskip
+
+\noindent
+Pour la zone \texttt{Map}, les couleurs seront représentées non pas 
+par des valeurs hexadécimales, mais par leur équivalent en couleur.
+\[
+  0 \Rightarrow \text{Blanc, } 1 \Rightarrow \text{Bleu, }
+  2 \Rightarrow \text{Vert, } 3 \Rightarrow \text{Cyan, }
+  4 \Rightarrow \text{Rouge, } 5 \Rightarrow \text{Magenta, }
+  6 \Rightarrow \text{Jaune, } 7 \Rightarrow \text{Noir}
+\]
+\medskip
+
+\noindent
+\textbf{Manuels d'instructions. } \quad
+Différents manuels d'instructions sont fournis pour tester vos 
+programmes. Voici comment ils sont structurés :
+\begin{itemize}
+  \item \emph{première ligne} : numéro de format du manuel (1 ou 2).
+  \item \emph{lignes suivantes} : chaque ligne contient une 
+    instruction sous la forme \\ 
+    \texttt{<largeur> <hauteur> <décalage\_horizontal> 
+    <décalage\_vertical> <couleur>}.
+\end{itemize}
+On peut prendre pour acquis que les instructions ont des valeurs 
+valides et minimales. Par exemple, un décalage horizontal ne dépassera
+jamais la largeur - 1 de la grille. 

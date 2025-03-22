@@ -1,0 +1,91 @@
+\subsection*{Debugging Tool}
+\noindent
+A rudimentary tool has been put in place to assist in the design
+of programs in assembly language. This tool allows you to visualize
+the state of the program at each step of its execution. This program,
+called \emph{asm}, is used as follows:
+\begin{verbatim}
+  ./asm [-p <path>] [-m <path>] [-b breakpoints]
+\end{verbatim}
+Where
+\begin{itemize}
+  \item \texttt{-p <path>} : specifies the path to the assembly 
+    program to be executed.
+  \item \texttt{-m <path>} : specifies the path to the instruction 
+    manual.
+  \item \texttt{-b breakpoints} : specifies the breakpoints separated 
+    by commas. Line numbers referring to the assembly file should be 
+    written.
+\end{itemize}
+Example of usage:
+\verb|./asm -p program.asm -m manual.txt -b 3,6,42|
+\medskip
+
+\noindent
+\textbf{Program Visualization. } \quad
+The debugging program consists of six distinct areas as well 
+as six commands to interact with the program. Below are tables listing
+the different available areas and commands:
+
+\begin{center}
+\begin{tabular}{cl}
+  \toprule
+  \emph{Command} & \emph{Purpose} \\
+  \midrule
+  \texttt{q} & Quit the program. \\
+  \texttt{i} & Change the selected area. \\
+  \texttt{w} & Scroll up the selected area. \\
+  \texttt{x} & Scroll down the selected area. \\
+  \texttt{s} & Execute an instruction. \\
+  \texttt{c} & Continue execution until the next breakpoint. \\
+  \bottomrule
+\end{tabular} 
+\medskip
+
+List of commands to interact with the debugger.
+\end{center}
+\medskip
+
+\begin{center}
+\begin{tabular}{ll}
+  \toprule
+  \emph{Area} & \emph{Description} \\
+  \midrule
+  \texttt{Instructions} & List of program instructions. \\
+  \texttt{Processor} & Information about the stack and registers. \\
+  \texttt{Memory} & Content of the ROM memory (instruction manual). \\
+  \texttt{Map} & Content of the RAM memory (construction grid). \\
+  \texttt{Pipeline} & Status of the execution pipeline. \\
+  \bottomrule
+\end{tabular}
+\medskip
+
+List of areas displayed by the debugger.
+\end{center}
+\medskip
+
+\noindent
+For the \texttt{Map} area, the colors will be represented not by 
+hexadecimal values, but by their equivalent color.
+\[
+  0 \Rightarrow \text{White, } 1 \Rightarrow \text{Blue, }
+  2 \Rightarrow \text{Green, } 3 \Rightarrow \text{Cyan, }
+  4 \Rightarrow \text{Red, } 5 \Rightarrow \text{Magenta, }
+  6 \Rightarrow \text{Yellow, } 7 \Rightarrow \text{Black}
+\]
+\medskip
+
+\noindent
+\textbf{Instruction Manuals. } \quad
+Different instruction manuals are provided to test your 
+programs. Here is how they are structured:
+\begin{itemize}
+  \item \emph{First line} : manual format number (1 or 2).
+  \item \emph{Following lines} : each line contains an instruction in 
+    the form of \\ \texttt{<width> <height> <horizontal\_offset> 
+    <vertical\_offset> <color>}.
+\end{itemize}
+It can be assumed that the instructions have valid and minimum values. 
+For example, a horizontal offset will never exceed the width - 1 of 
+the grid.
+

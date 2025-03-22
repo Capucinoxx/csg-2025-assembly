@@ -1,0 +1,34 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../common/macro}
+\usepackage{../common/styles}
+
+\usepackage[french]{babel}
+\usepackage{abstract}
+\addto\captionsfrench{\renewcommand{\abstractname}{Abstract \medskip}}
+
+\begin{document}
+  \input{sec-citation}
+
+  \begin{abstract}
+    Innovation in programming relies on the ability to transcend the 
+    limitations of existing languages. While these languages are 
+    powerful in terms of expressiveness, they can constrain developers 
+    creativity by imposing rigid structures. This note proposes the 
+    creation of an assembly language based on Presburger arithmetic, 
+    a mathematical theory that provides a decidable framework for 
+    manipulating integers.
+  \end{abstract}
+
+  \input{sec-architecture}
+  \input{sec-memory}
+  \input{sec-instructions}
+  
+  \clearpage
+  \input{sec-competition}
+
+  \clearpage 
+  \input{sec-debugger}
+
+  \clearpage
+  \input{sec-score}
+\end{document}

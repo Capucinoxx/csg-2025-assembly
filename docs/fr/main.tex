@@ -1,0 +1,32 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../common/macro}
+\usepackage{../common/styles}
+
+\usepackage[french]{babel}
+
+\begin{document}
+  \input{sec-citation}
+  
+  \begin{abstract}
+    L'innovation en programmation repose sur la capacité à transcender
+    les limitations des langages existants. Ces derniers, bien que 
+    puissants en terme d'expressivité, peuvent restreindre la 
+    créativité des développeur.euse.s en imposant des structures
+    rigides. Cette note propose la création d'un langage assembleur
+    basé sur l'arithmétique de Presburger, une théorie mathématique
+    offrant un cadre décidable pour la manipulation des entiers.
+  \end{abstract}
+
+  \input{sec-architecture}
+  \input{sec-memory}
+  \input{sec-instructions}
+  
+  \clearpage
+  \input{sec-competition}
+
+  \clearpage 
+  \input{sec-debugger}
+
+  \clearpage
+  \input{sec-score}
+\end{document}

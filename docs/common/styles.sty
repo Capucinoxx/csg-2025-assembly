@@ -1,0 +1,39 @@
+%% --- Page layout
+%% ========================================
+\usepackage[ignoreheadfoot, 
+  top=2cm, bottom=3cm, left=2cm, right=2cm, 
+  footskip=1cm]{geometry}
+\usepackage{calc}
+\usepackage{ragged2e}
+\usepackage{xparse}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+\geometry{a4paper}
+\usepackage{charter}
+
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep 0pt}
+
+\setlength{\parindent}{0pt}
+%\setlength{\parskip}{0pt}
+
+\justifying
+
+
+%% --- Character encoding
+%% ========================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+
+\usepackage{booktabs}
+
+
+%% --- Math 
+%% =======================================
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{proposition}{Proposition}
+
+\usepackage{tikz}
